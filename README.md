@@ -19,4 +19,26 @@ An open-source financial engine that replaces rigid monthly EMIs with dynamic, p
 
 ---
 
-## Architectural Flow
+## Architectural Flow 
+---
+
+## Regulatory & Bureau Architecture
+
+| Domain | Specification |
+| :--- | :--- |
+| **Operating Model** | Lending Service Provider (LSP) interfacing with RBI-registered Banks/NBFCs via escrow rails. |
+| **Data Privacy** | Purpose-bound user consent under the Digital Personal Data Protection (DPDP) Act. |
+| **Bureau Account Type** | Overdraft / Credit Line (`Type 05`). |
+| **Monthly MAD Logic** | `MAD = Sum of Triggered Daily Sweeps`. If monthly income = ₹0, MAD = ₹0 (reported as `000 / Current`). |
+| **Insurance Co-Funding**| Parametric micro-insurance co-funded 80% by gig platforms (driver retention asset) and 20% by borrower. |
+
+---
+
+## Quick Start
+
+### Installation
+
+```bash
+git clone [https://github.com/your-username/elastic-credit-engine.git](https://github.com/your-username/elastic-credit-engine.git)
+cd elastic-credit-engine
+pip install -r requirements.txt
