@@ -38,6 +38,17 @@ An open-source financial engine that replaces rigid monthly EMIs with dynamic, p
 
 ### Installation
 
+from src.engine import ElasticCreditEngine
+
+engine = ElasticCreditEngine(principal=2000, processing_fee=150)
+
+# Simulate a 3-day earning sequence: Low day, Average day, Surge day
+daily_inflows = [250, 600, 1500]
+
+for day, income in enumerate(daily_inflows, 1):
+    result = engine.process_daily_inflow(daily_income=income)
+    print(f"Day {day}: Earned ₹{income} | Swept ₹{result['deduction']} | Remaining Balance: ₹{result['remaining_balance']}")
+
 ```bash
 git clone [https://github.com/your-username/elastic-credit-engine.git](https://github.com/your-username/elastic-credit-engine.git)
 cd elastic-credit-engine
